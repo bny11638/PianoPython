@@ -1,6 +1,7 @@
 import tkinter
 from tkinter import Button, PhotoImage
 from playsound import playsound
+import threading
 
 global key
 global keyBlack
@@ -18,7 +19,8 @@ root = tkinter.Tk()
 key = PhotoImage(file='resources/images/key.png')
 keyBlack= PhotoImage(file='resources/images/blackKey.png')
 def buttonClick(path):
-    playsound(path)
+    x = threading.Thread(target=playsound, args=(path,))
+    x.start()
 
 key_C = Button(root,image = key, command=lambda:buttonClick(note_C))
 key_D = Button(root,image = key, command=lambda:buttonClick(note_D))
