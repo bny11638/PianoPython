@@ -3,6 +3,7 @@ from tkinter import Button, PhotoImage
 from playsound import playsound
 
 global key
+global keyBlack
 
 note_C='resources/sounds/mp3Notes/c3.mp3'
 note_D='resources/sounds/mp3Notes/d3.mp3'
@@ -15,6 +16,7 @@ note_B='resources/sounds/mp3Notes/b3.mp3'
 
 root = tkinter.Tk()
 key = PhotoImage(file='resources/images/key.png')
+keyBlack= PhotoImage(file='resources/images/blackKey.png')
 def buttonClick(path):
     playsound(path)
 
@@ -33,5 +35,8 @@ key_F.pack(side='left')
 key_G.pack(side='left')
 key_A.pack(side='left')
 key_B.pack(side='left')
+
+key_Black = Button(root,image = keyBlack, command=lambda:buttonClick(note_B))
+key_Black.place(x=0,y=0)
 
 root.mainloop(0)
