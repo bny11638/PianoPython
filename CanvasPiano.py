@@ -1,5 +1,15 @@
 from tkinter import *
 import winsound
+from playsound import playsound
+
+sound_C3='resources/sounds/mp3Notes/c3.mp3'
+
+def playnote(event, path):
+    buttonClick(path)
+
+def buttonClick(event, path):
+    playsound(path)
+    print('testing')
 #from winsound import *
 
 
@@ -55,7 +65,7 @@ cs4 = canvas.create_polygon(35, 0, 35, 200, 65, 200, 65, 0, fill='black')
 ds4 = canvas.create_polygon(85, 0, 85, 200, 115, 200, 115, 0, fill='black')
 fs4 = canvas.create_polygon(185, 0, 185, 200, 215, 200, 215, 0, fill='black')
 
-canvas.tag_bind(c4, "<Button-1>", playc4)
+canvas.tag_bind(c4, "<Button-1>", lambda event: buttonClick(event, path=sound_C3))
 canvas.tag_bind(d4, "<Button-1>", playd4)
 canvas.tag_bind(e4, "<Button-1>", playe4)
 canvas.tag_bind(f4, "<Button-1>", playf4)
