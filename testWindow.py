@@ -1,6 +1,8 @@
 import tkinter
-from tkinter import Button
+from tkinter import Button, PhotoImage
 from playsound import playsound
+
+global key
 
 note_C='resources/sounds/mp3Notes/c3.mp3'
 note_D='resources/sounds/mp3Notes/d3.mp3'
@@ -10,25 +12,26 @@ note_G='resources/sounds/mp3Notes/g3.mp3'
 note_A='resources/sounds/mp3Notes/a3.mp3'
 note_B='resources/sounds/mp3Notes/b3.mp3'
 
-root = tkinter.Tk()
 
+root = tkinter.Tk()
+key = PhotoImage(file='resources/images/key.png')
 def buttonClick(path):
     playsound(path)
 
-key_C = Button(root,text="C3", command=lambda:buttonClick(note_C))
-key_D = Button(root,text="D3", command=lambda:buttonClick(note_D))
-key_E = Button(root,text="E3", command=lambda:buttonClick(note_E))
-key_F = Button(root,text="F3", command=lambda:buttonClick(note_F))
-key_G = Button(root,text="G3", command=lambda:buttonClick(note_G))
-key_A = Button(root,text="A3", command=lambda:buttonClick(note_A))
-key_B = Button(root,text="B3", command=lambda:buttonClick(note_B))
+key_C = Button(root,image = key, command=lambda:buttonClick(note_C))
+key_D = Button(root,image = key, command=lambda:buttonClick(note_D))
+key_E = Button(root,image = key, command=lambda:buttonClick(note_E))
+key_F = Button(root,image = key, command=lambda:buttonClick(note_F))
+key_G = Button(root,image = key, command=lambda:buttonClick(note_G))
+key_A = Button(root,image = key, command=lambda:buttonClick(note_A))
+key_B = Button(root,image = key, command=lambda:buttonClick(note_B))
 
-key_C.pack()
-key_D.pack()
-key_E.pack()
-key_F.pack()
-key_G.pack()
-key_A.pack()
-key_B.pack()
+key_C.pack(side='left')
+key_D.pack(side='left')
+key_E.pack(side='left')
+key_F.pack(side='left')
+key_G.pack(side='left')
+key_A.pack(side='left')
+key_B.pack(side='left')
 
 root.mainloop(0)
