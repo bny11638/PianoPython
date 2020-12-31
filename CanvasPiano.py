@@ -1,6 +1,7 @@
 from tkinter import *
 import winsound
 from playsound import playsound
+import threading
 
 sound_C3='resources/sounds/mp3Notes/c3.mp3'
 
@@ -8,13 +9,13 @@ def playnote(event, path):
     buttonClick(path)
 
 def buttonClick(event, path):
-    playsound(path)
+    x = threading.Thread(target=playsound,args=(path,))
+    x.start()
     print('testing')
 #from winsound import *
 
 
-   # winsound.Beep('frequency', 'duration')
-
+# winsound.Beep('frequency', 'duration')
 def playc4(event):
     print("C4!")
     winsound.Beep(262, 500)
@@ -48,7 +49,6 @@ def playg4(event):
     winsound.Beep(392, 500)
 
 
-
 root = Tk()
 
 canvas = Canvas(root, height=300, width=1200)
@@ -73,6 +73,5 @@ canvas.tag_bind(g4, "<Button-1>", playg4)
 canvas.tag_bind(cs4, "<Button-1>", playcs4)
 canvas.tag_bind(ds4, "<Button-1>", playds4)
 canvas.tag_bind(fs4, "<Button-1>", playfs4)
-
 
 root.mainloop()
