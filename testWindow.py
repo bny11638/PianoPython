@@ -6,29 +6,21 @@ import threading
 global key
 global keyBlack
 
-note_C='resources/sounds/mp3Notes/c3.mp3'
-note_D='resources/sounds/mp3Notes/d3.mp3'
-note_E='resources/sounds/mp3Notes/e3.mp3'
-note_F='resources/sounds/mp3Notes/f3.mp3'
-note_G='resources/sounds/mp3Notes/g3.mp3'
-note_A='resources/sounds/mp3Notes/a3.mp3'
-note_B='resources/sounds/mp3Notes/b3.mp3'
-
-
 root = tkinter.Tk()
 key = PhotoImage(file='resources/images/key.png')
 keyBlack= PhotoImage(file='resources/images/blackKey.png')
-def buttonClick(path):
+def buttonClick(note):
+    path = 'resources/sounds/mp3Notes/' + note + '.mp3'
     x = threading.Thread(target=playsound, args=(path,))
     x.start()
 
-key_C = Button(root,image = key, command=lambda:buttonClick(note_C))
-key_D = Button(root,image = key, command=lambda:buttonClick(note_D))
-key_E = Button(root,image = key, command=lambda:buttonClick(note_E))
-key_F = Button(root,image = key, command=lambda:buttonClick(note_F))
-key_G = Button(root,image = key, command=lambda:buttonClick(note_G))
-key_A = Button(root,image = key, command=lambda:buttonClick(note_A))
-key_B = Button(root,image = key, command=lambda:buttonClick(note_B))
+key_C = Button(root,image = key, command=lambda:buttonClick("c3"))
+key_D = Button(root,image = key, command=lambda:buttonClick("d3"))
+key_E = Button(root,image = key, command=lambda:buttonClick("e3"))
+key_F = Button(root,image = key, command=lambda:buttonClick("f3"))
+key_G = Button(root,image = key, command=lambda:buttonClick("g3"))
+key_A = Button(root,image = key, command=lambda:buttonClick("a3"))
+key_B = Button(root,image = key, command=lambda:buttonClick("b3"))
 
 key_C.pack(side='left')
 key_D.pack(side='left')
@@ -38,7 +30,7 @@ key_G.pack(side='left')
 key_A.pack(side='left')
 key_B.pack(side='left')
 
-key_Black = Button(root,image = keyBlack, command=lambda:buttonClick(note_B))
+key_Black = Button(root,image = keyBlack, command=lambda:buttonClick("c4"))
 key_Black.place(x=0,y=0)
 
 root.mainloop(0)
