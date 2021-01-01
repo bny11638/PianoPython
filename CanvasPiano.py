@@ -12,16 +12,23 @@ def buttonClick(event, path):
     print('testing')
 #from winsound import *
 
+def testButtonCommand(event):
+    for key in large_keys:
+        canvas.itemconfig(key, fill='black')
+
 
 # winsound.Beep('frequency', 'duration')
-
 
 
 root = Tk()
 
 canvas = Canvas(root, height=300, width=1100)
+test_button = Button(root, text="click aqui")
+test_button.bind("<Button-1>", testButtonCommand)
+test_button.pack()
 
-canvas.bind("<1>", lambda event: canvas.focus_set())
+# for keystrokes
+# canvas.bind("<1>", lambda event: canvas.focus_set())
 canvas.pack()
 
 # testrectangle = canvas.create_rectangle(0, 0, 50, 100, fill="purple")
@@ -64,6 +71,7 @@ ds5 = canvas.create_polygon(785, 0, 785, 200, 815, 200, 815, 0, fill='black')
 fs5 = canvas.create_polygon(885, 0, 885, 200, 915, 200, 915, 0, fill='black')
 gs5 = canvas.create_polygon(935, 0, 935, 200, 965, 200, 965, 0, fill='black')
 
+large_keys = [c3, d3, e3]
 
 
 
