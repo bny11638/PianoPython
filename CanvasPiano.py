@@ -12,20 +12,36 @@ def buttonClick(event, path):
     print('testing')
 #from winsound import *
 
-def testButtonCommand(event):
+def harpsichordCommand(event):
     for key in large_keys:
-        canvas.itemconfig(key, fill='black')
+        canvas.itemconfig(key, fill='black', outline='gray20')
 
 
+    for key in small_keys:
+        canvas.itemconfig(key, fill='gainsboro', outline='light steel blue')
+        
+
+def pianoCommand(event):
+    for key in large_keys:
+        canvas.itemconfig(key, fill='gainsboro', outline='light steel blue')
+
+
+    for key in small_keys:
+        canvas.itemconfig(key, fill='black', outline='black')
+        
 # winsound.Beep('frequency', 'duration')
 
 
 root = Tk()
 
 canvas = Canvas(root, height=300, width=1100)
-test_button = Button(root, text="click aqui")
-test_button.bind("<Button-1>", testButtonCommand)
-test_button.pack()
+harpsichord_button = Button(root, text="Harpsichord")
+harpsichord_button.bind("<Button-1>", harpsichordCommand)
+piano_button = Button(root, text="Grand Piano")
+piano_button.bind("<Button-1>", pianoCommand)
+
+harpsichord_button.pack()
+piano_button.pack()
 
 # for keystrokes
 # canvas.bind("<1>", lambda event: canvas.focus_set())
@@ -71,7 +87,8 @@ ds5 = canvas.create_polygon(785, 0, 785, 200, 815, 200, 815, 0, fill='black')
 fs5 = canvas.create_polygon(885, 0, 885, 200, 915, 200, 915, 0, fill='black')
 gs5 = canvas.create_polygon(935, 0, 935, 200, 965, 200, 965, 0, fill='black')
 
-large_keys = [c3, d3, e3]
+large_keys = [c3, d3, e3, f3, g3, a3, b3, c4, d4, e4, f4, g4, a4, b4, c5, d5, e5, f5, g5, a5, b5, c6]
+small_keys = [cs3, ds3, fs3, gs3, as4, cs4, ds4, fs4, gs4, as5, cs5, ds5, fs5, gs5]
 
 
 
